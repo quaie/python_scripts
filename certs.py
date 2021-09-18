@@ -11,8 +11,7 @@ f=open("./orma", "r")
 
 for i in f:
   #print(i)
-  command = 'ldapsearch -D "cn=reader,ou=Local,o=org,c=COM" -o ldif-wrap=no -LL -t -x -T /tmp/ -H ldaps://ldap.example.COM:636/ -b "o=Admin,c=COM" \'(mail={0})\' 2>/dev
-/null | grep userCert | cut -d"<" -f2 | cut -d":" -f2'.format(i.strip())
+  command = 'ldapsearch -D "cn=reader,ou=Local,o=org,c=COM" -o ldif-wrap=no -LL -t -x -T /tmp/ -H ldaps://ldap.example.COM:636/ -b "o=Admin,c=COM" \'(mail={0})\' 2>/dev/null | grep userCert | cut -d"<" -f2 | cut -d":" -f2'.format(i.strip())
   if 'tmp' not in commands.getstatusoutput(command)[1]:
     #print commands.getstatusoutput(command)
     #print(i)
